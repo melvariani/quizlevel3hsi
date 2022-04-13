@@ -1,0 +1,69 @@
+{% extends "pesertaHSI/basePeserta.html" %}
+{% block title %}Hasil Evaluasi{% endblock %}
+
+{% block main %}
+<br>
+        <div>      
+            <div class="header">
+                <h3 style="font-size: 40px;">Hasil Evaluasi Harian</h3>
+            </div>
+                {%for hasil in HslEva%}
+                    {%if forloop.counter0|divisibleby:2%}
+                    <hr>
+                        <h3 id="judulEval">{{hasil.Paket_Soal_ID}}</h3>
+                        <p class="colortotal">Total Nilai : {{hasil.Total}}</p>
+                    {%endif%}
+                    <br>
+                    <p style="font-weight:bold;">{{forloop.counter}} . {{hasil.Soal_ID}}</p>
+                    {% if hasil.Choice == hasil.kunci %}
+                        {% if hasil.Choice == "A" %}
+                            <p style="color:rgb(102, 192, 11); font-weight:bold;">{{hasil.option_one}}</p>
+                            <p>{{hasil.option_two}}</p>
+                            <p>{{hasil.option_three}}</p>
+                            <p>{{hasil.option_four}}</p>
+                        {% elif hasil.Choice == "B" %}
+                            <p>{{hasil.option_one}}</p>
+                            <p style="color:rgb(102, 192, 11); font-weight:bold;">{{hasil.option_two}}</p>
+                            <p>{{hasil.option_three}}</p>
+                            <p>{{hasil.option_four}}</p>
+                        {% elif hasil.Choice == "C" %}
+                            <p>{{hasil.option_one}}</p>
+                            <p>{{hasil.option_two}}</p>
+                            <p style="color:rgb(102, 192, 11); font-weight:bold;">{{hasil.option_three}}</p>
+                            <p>{{hasil.option_four}}</p>
+                        {% elif hasil.Choice == "D" %}
+                            <p>{{hasil.option_one}}</p>
+                            <p>{{hasil.option_two}}</p>
+                            <p>{{hasil.option_three}}</p>
+                            <p style="color:rgb(102, 192, 11); font-weight:bold;">{{hasil.option_four}}</p>
+                        {% endif %}    
+                    {% else %}
+                        {% if hasil.Choice == "A" %}
+                            <p style="color:red; font-weight:bold;">{{hasil.option_one}}</p>
+                            <p>{{hasil.option_two}}</p>
+                            <p>{{hasil.option_three}}</p>
+                            <p>{{hasil.option_four}}</p>
+                        {% elif hasil.Choice == "B" %}
+                            <p>{{hasil.option_one}}</p>
+                            <p style="color:red; font-weight:bold;">{{hasil.option_two}}</p>
+                            <p>{{hasil.option_three}}</p>
+                            <p>{{hasil.option_four}}</p>
+                        {% elif hasil.Choice == "C" %}
+                            <p>{{hasil.option_one}}</p>
+                            <p>{{hasil.option_two}}</p>
+                            <p style="color:red; font-weight:bold;">{{hasil.option_three}}</p>
+                            <p>{{hasil.option_four}}</p>
+                        {% elif hasil.Choice == "D" %}
+                            <p>{{hasil.option_one}}</p>
+                            <p>{{hasil.option_two}}</p>
+                            <p>{{hasil.option_three}}</p>
+                            <p style="color:red; font-weight:bold;">{{hasil.option_four}}</p>
+                        {% endif %}
+                    {%endif%}      
+                    ===============================<br>
+                    Kunci Jawaban : {{hasil.kunci}}<br>
+                    Nilai : {{hasil.Nilai}}<br>
+                    ===============================<br>
+                {%endfor%}
+        </div>
+{% endblock %}

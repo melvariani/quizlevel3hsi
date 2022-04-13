@@ -1,0 +1,37 @@
+{% extends "adminHSI/baseAdmin.html" %}
+
+{% block title %}Bank Soal{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="header">
+                <h3>Kumpulan Soal</h3>
+            </div>
+            <div>
+            <ul class="list-group">
+                {%for soal in soals %}
+                    <li class="list-group-item">
+                        <strong>{{forloop.counter}}. {{soal.question}}</strong>
+                        <ul>
+                            {{soal.option_one}}<br>
+                            {{soal.option_two}}<br>
+                            {{soal.option_three}}<br>
+                            {{soal.option_four}}
+                        </ul>
+                    Kunci jawaban : {{soal.kunci}}
+                    <span>
+                        <a href="{% url 'hapussoal' soal.id%}" class="buttondel">Hapus</a> &nbsp;
+                        <a href="{% url 'ubahsoal' soal.id%}" class="button">Ubah</a> &nbsp;
+                        <!-- btn btn-info btn-xs pull-right-->
+                    
+                    </span>
+                    </li>
+                 {%endfor%}
+            </ul>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

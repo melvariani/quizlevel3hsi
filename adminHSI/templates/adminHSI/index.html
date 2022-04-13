@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HSI SANDBOX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+    <style>
+        .judul{
+            background-color:white;
+            color:cornflowerblue;
+            font-size: 90px;
+            font-family:'Lobster Two', cursive;;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        /*.boxfooter{
+            background-color: lavenderblush;
+            height: 70px;
+            max-width: auto;   
+        }
+        .boxfooter p{
+            margin-top: 5px;
+        }
+        .foot{
+            margin-left: 92px;
+            margin-top: 20px;
+            color:lightpink;
+            font-size: 20px;
+            font-family:monospace;
+            letter-spacing: 1px;
+        }*/
+            
+
+        .button{
+            background-color: lightskyblue;
+            border:none;
+            color: azure;
+            border-radius: 50px;
+            transition-duration: 0.3s;
+            font-size: 33px;
+            margin: 35px;
+            margin-top: 5px;
+        }
+
+        .button:hover {
+            background-color: white;
+            color: lightskyblue;
+            border: 1px solid;
+            border-color: lightskyblue;
+          }
+        
+        .dispbtn{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <section class="hero is-primary"> -->
+    <section class="judul">
+        <div class="hero-body">
+            <div class="container">
+                <!-- <h1 class="title"> -->
+                <h1>
+                    HSI Abdullah Roy     
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="dispbtn">
+            <div class="control">
+                <a href="{% url 'halAdmin' %}">
+                    <button class="button">Admin</button>
+                </a>
+            </div>
+            <br>
+            <div class="control">
+                <a href="{% url 'halPeserta' %}">
+                    <button class="button">Peserta</button>
+                </a>
+            </div>
+        </div>
+
+    </section>
+    <!-- /*<section class="boxfooter">
+         <footer class="footer"> 
+        <footer class="foot">
+            <p>Melvariani </p>
+            <p>Instagram: @jafacraft</p>
+        </footer>
+    </section> -->
+</body>
+
+</html>

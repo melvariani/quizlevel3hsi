@@ -1,0 +1,39 @@
+{% extends "adminHSI/baseAdmin.html" %}
+{% load widget_tweaks %}
+
+{% block title %}Buat Soal{% endblock %}
+
+{% block main %}
+        {%if submitted %}
+            <div class="header">
+                <h3>Soal berhasil ditambahkan</h3>
+            </div>
+        {%else%}
+            <div class="header">
+                <h3> Buat Soal Baru</h3>
+            </div>
+            <br><br>
+            <form action="" method=POST>
+                {%csrf_token%}
+                <!-- {{form.as_p}} -->
+                <textarea name="question" id="" cols="100" rows="3" placeholder="Pertanyaan"></textarea><br>
+                <textarea name="option_one" id="" cols="100" rows="1" placeholder="Pilihan1"></textarea><br>
+                <textarea name="option_two" id="" cols="100" rows="1" placeholder="Pilihan2"></textarea><br>
+                <textarea name="option_three" id="" cols="100" rows="1" placeholder="Pilihan3"></textarea><br>
+                <textarea name="option_four" id="" cols="100" rows="1" placeholder="Pilihan4"></textarea><br>
+                <select name="Kunci Jawaban" id="">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select><br>
+                <input type="submit" value ="Submit" class="buttonsubmit">
+            </form>
+
+        
+        {%endif%}
+
+        
+
+    </center>
+{% endblock %}

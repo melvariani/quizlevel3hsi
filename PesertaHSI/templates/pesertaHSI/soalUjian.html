@@ -1,0 +1,46 @@
+{% extends "pesertaHSI/basePeserta.html" %}
+
+{% block title %}Soal Ujian{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="header">
+                <h3 style="font-size: 40px;">Evaluasi Harian</h3>
+            </div>
+            <div>
+            <form method="POST">
+                {%csrf_token%}
+                <ul class="list-group">
+                    {%for soal in soals %}
+                        <li class="list-group-item">
+                            <strong>{{forloop.counter}}. {{soal.question}}</strong>
+                            <ul class="radio">
+                                <input type="radio" name="Choice{{forloop.counter}}" value="A"> {{soal.option_one}} </input><br>
+                                <input type="radio" name="Choice{{forloop.counter}}" value="B"> {{soal.option_two}} </input><br>
+                                <input type="radio" name="Choice{{forloop.counter}}" value="C"> {{soal.option_three}}</input><br>
+                                <input type="radio" name="Choice{{forloop.counter}}" value="D"> {{soal.option_four}} </input>
+                            </ul>
+                            <input type="hidden" name="key{{forloop.counter}}" value="{{soal.kunci}}">
+                            <!-- <input type="text" name="soal{{forloop.counter}}" value="{{soal.id}}">   -->
+                            <input type="hidden" name="soal{{forloop.counter}}" value="{{soal.question}}">
+                            <input type="hidden" name="Pilihan1{{forloop.counter}}" value="{{soal.option_one}}">
+                            <input type="hidden" name="Pilihan2{{forloop.counter}}" value="{{soal.option_two}}">
+                            <input type="hidden" name="Pilihan3{{forloop.counter}}" value="{{soal.option_three}}">
+                            <input type="hidden" name="Pilihan4{{forloop.counter}}" value="{{soal.option_four}}">
+                        <!-- <span class="pull-right">
+                            <a href="{% url 'ubahsoal' soal.id%}" class="btn btn-info btn-xs">Ubah</a> &nbsp;
+                            <a href="{% url 'hapussoal' soal.id%}" class="btn btn-info btn-xs">Hapus</a> &nbsp;
+                        </span> -->
+                        </li>
+                    {%endfor%}
+                </ul>
+            <button type="submit" class="buttonsubmit">Submit</button>
+            </form>
+           
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "adminHSI/baseAdmin.html" %}
+{% load widget_tweaks %}
+
+{% block title %}Buat Soal{% endblock %}
+
+{% block main %}
+               
+            
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="panel panel-default">
+                        <div class="header">
+                            <h3>Update Soal</h3>
+                        </div>
+                            
+                        <form method="POST">
+                            {%csrf_token%}
+                            <textarea name="question" id="" cols="100" rows="3" placeholder="Pertanyaan">{{soal.question}}</textarea><br>
+                            <textarea name="option_one" id="" cols="100" rows="1" placeholder="Pilihan1">{{soal.option_one}}</textarea><br>
+                            <textarea name="option_two" id="" cols="100" rows="1" placeholder="Pilihan2">{{soal.option_two}}</textarea><br>
+                            <textarea name="option_three" id="" cols="100" rows="1" placeholder="Pilihan3"}>{{soal.option_three}}</textarea><br>
+                            <textarea name="option_four" id="" cols="100" rows="1" placeholder="Pilihan4">{{soal.option_four}}</textarea><br>
+                            <select name="Kunci Jawaban" id="">
+                                {%if soal.kunci == "A"%}
+                                    <option value="A"selected="selected">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                {%elif soal.kunci == "B"%}
+                                    <option value="A">A</option>
+                                    <option value="B" selected="selected">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                {%elif soal.kunci == "C"%}
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C" selected="selected">C</option>
+                                    <option value="D">D</option>
+                                {%elif soal.kunci == "D"%}
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D" selected="selected">D</option>
+                                {%endif%}    
+                            </select>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <button type="submit"  class="buttonsubmit">Submit</button>
+                                    </div>
+                                </div>
+                        </form>
+                        <br>
+                                
+                    </div>
+                </div>
+            </div>
+ {% endblock %}
